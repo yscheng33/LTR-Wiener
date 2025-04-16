@@ -1,4 +1,4 @@
-# Code for: Longitudinal Threshold Regression for Time-to-event Data: with Applications to Wiener Processes
+# R Code for Longitudinal Threshold Regression for Time-to-event Data: with Applications to Wiener Processes
 
 This repository contains the R scripts used for the paper "Longitudinal Threshold Regression for Time-to-event Data: with Applications to Wiener Processes" submitted to Stats.
 
@@ -6,7 +6,7 @@ This repository contains the R scripts used for the paper "Longitudinal Threshol
 - `LTR_Wiener.R`: LTR analysis for the class of Wiener processes
 
 ## Requirements
-R version 4.2+
+R version 4.4.2+
 Install required packages using:
 ```R
 install.packages("threg")
