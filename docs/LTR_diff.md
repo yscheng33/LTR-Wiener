@@ -7,11 +7,11 @@ Results of these 4 steps create the input file for the “LTR_Wiener” R functi
 1. Decompose the longitudinal data set into a sequence of inter-visit data elements.
    For each subject $i$, with baseline visit labeled as visit 0, we denote the first interval as from visit 0 to visit 1,
    corresponding to time 0 to $t_{i,1}$. Similarly, the jth interval is from visit $j − 1$ to visit $j$ corresponding to time from $t_{i,j−1}$ to $t_{i,j}$.
-2. Create a column of time increments diff_{tj} recording the length of time span for each interval.
+2. Create a column of time increments $diff_{t_j}$ recording the length of time span for each interval.
    For subject $i$, the time increment in the $j$-th interval is $diff_{t_j} = t_{i,j} − t_{i,j−1}$.
 3. Create a column of outcome indicators for an event $\eta_{i,j}$ at the closing of the $j$-th interval.
    For subject $i$, label the outcome indicator for the $j$-th interval as $\eta_{i,j} = 1$ if subject $i$ encountered an event at time $t_{i,j}$, and $\eta_{i,j} = 0$ otherwise.
-4. Label the $k$th covariates measured at time $t_{i,j−1}$ and $t_{i,j}$ for the jth interval.
+4. Label the $k$-th covariates measured at time $t_{i,j−1}$ and $t_{i,j}$ for the jth interval.
    Covariates measured at time $t_{i,j−1}$ will be labeled as “CovariateName_L”.
    Similarly, covariate measured at time $t_{i,j}$, will be labeled as “CovariateName_R”.
    We use covariates at both the left and right end of the interval $j$ in likelihood computations.
@@ -19,7 +19,7 @@ Results of these 4 steps create the input file for the “LTR_Wiener” R functi
    
 We provide the “LTR_diff” function to help users create the input file required by the “LTR_Wiener” function. 
 The “LTR_diff” function includes three arguments as listed below.
-1. file: Specifies the input longitudinal data set, which shouldbe provided as a .csv file.
+1. file: Specifies the input longitudinal data set, which should be provided as a .csv file.
    The dataset must contain at least columns “ID” (unique identification number for each participant), ”TIME” (number of unit time since baseline exam),
    ”EVENT” (outcome indicator of an event, the censoring variable should be coded as 1 for observed failure and 0 for right censoring) and
    ”EVENTTIME” (number of unit time from baseline exam to first event during the followup or number of unit time from baseline to
@@ -40,5 +40,5 @@ col.scale <- c("AGE","TOTCHOL")
 
 LTR.data <- LTR_diff(file = long.data, col_name = col.select, col_std = col.scale)
 
-write.table(LTR.data,"LTR-data.csv",sep=",",row.names=F)
+write.table(LTR.data, "LTR-data.csv", sep=",", row.names=F)
 
