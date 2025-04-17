@@ -39,7 +39,7 @@ col.select <- c("ID","TIME","EVENT","EVENTTIME","AGE","TOTCHOL")
 
 col.scale <- c("AGE","TOTCHOL")
 
-LTR.data <- LTR_diff(file = long.data, col_name = col.select, col_std = col.scale)
+LTRdata <- LTR_diff(file = long.data, col_name = col.select, col_std = col.scale)
 
-write.table(LTR.data, "LTR-data.csv", sep=",", row.names=F)
+save(LTR.data, file = "LTRdata.Rdata", sep=",", row.names=F)
 
