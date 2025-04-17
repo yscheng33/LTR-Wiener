@@ -13,10 +13,10 @@ Specifically, the “LTR_Wiener” function includes five arguments as listed be
 
 1. formula: A ‘formula’ object where the response variable appears on the left of the ˜ operator and the independent variables are specified on the right. 
    The response must be a ‘Surv’ object, as returned by the “Surv” function in the survival package. 
-   For subject i, at visit j, we include time increment variables diff$_{t_j} = t_{i,j} − t_{i,j−1}$ and an outcome indicator $\eta_{i,j} = I(CVD)$. 
-   On the right of the ˜ operator, the | operator is used to separate independent variables for linear regression functions of $y_j−1$ and $\mu_j$ in the LTR model. 
-   With $Z_{i,1}, j=1$ for each subject $i$ and visit $j$, the intercept is included in the model by default. 
-2. data: Specifies input data set, which must include at least the time increments variable diff$_{t_j}$ and outcome indicator ηi,j. 
+   For subject $i$, at visit $j$, we include time increment variables diff$_{t_j} = t_{i,j} − t_{i,j−1}$ and an outcome indicator $\eta_{i,j} = I(CVD)$. 
+   On the right of the ˜ operator, the | operator is used to separate independent variables for linear regression functions of $y_{j−1}$ and $\mu_j$ in the LTR model. 
+   With $Z_{i,1,j}=1$ for each subject $i$ and visit $j$, the intercept is included in the model by default. 
+2. data: Specifies input data set, which must include at least the time increments variable diff$_{t_j}$ and outcome indicator $\eta_{i,j}$. 
    The censoring variable should be coded as 1 for observed failure and 0 for right censoring. 
    The dataset can also contain other independent variables relevant to the LTR model. 
 3. init_value: Initial values for the parameters to be optimized over. 
