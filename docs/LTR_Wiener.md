@@ -12,7 +12,7 @@ These modifications facilitate the iteration process during the estimation of re
 Specifically, the “LTR_Wiener” function includes five arguments as listed below.
 1. formula: A ‘formula’ object where the response variable appears on the left of the ˜ operator and the independent variables are specified on the right. 
    The response must be a ‘Surv’ object, as returned by the “Surv” function in the survival package. 
-   For subject i, at visit j, we include time increment variables difftj = ti,j − ti,j−1 and an outcome indicator ηi,j = I(CVD). 
+   For subject i, at visit j, we include time increment variables $diff_{t_j} = t_{i,j} − t_{i,j−1}$ and an outcome indicator ηi,j = I(CVD). 
    On the right of the ˜ operator, the | operator is used to separate independent variables for linear regression functions of yj−1 and μj in the LTR model. 
    With Zi,1,j=1 for each subject i and visit j, the intercept is included in the model by default. 
 2. data: Specifies input data set, which must include at least the time increments variable difftj and outcome indicator ηi,j. 
