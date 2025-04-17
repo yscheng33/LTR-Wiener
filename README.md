@@ -6,6 +6,7 @@ This repository contains the R functions used for the paper "Longitudinal First-
 - `LTR_diff.R`: Reformat the longitudinal data into an input data for the function “LTR_Wiener”
 - `LTR_Wiener.R`: LTR analysis for the class of Wiener processes
 -  docs/ : user guides `LTR_diff.md` and `LTR_Wiener.md`
+-  data/ : a sample dataset `longitudinal_dataset.csv` for demonstrating the use of the function “LTR_diff”
 ## Requirements
 R version 4.4.2+
 Install required packages using:
