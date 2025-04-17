@@ -27,6 +27,7 @@ The “LTR_diff” function includes three arguments as listed below.
 2. col_name: Specifies the column names to be included for the LTR analysis.
    The columns “ID”, ”TIME”,”EVENT” and ”EVENTTIME” mentioned in point 1 must be included.
 3. col_std: Specifies the column names of covariates to be standardized. The default is NULL.
+   A suffix “s” will be added in the output column name, i.e., “CovariateNames_L” and “CovariateNames_R”.
 
 Below are the sample code for “LTR_diff” function:
 
