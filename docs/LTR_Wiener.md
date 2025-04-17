@@ -10,6 +10,27 @@ We also add options to allow users to input initial values and switch between op
 These modifications facilitate the iteration process during the estimation of regression coefficients in the LTR model.
 
 Specifically, the “LTR_Wiener” function includes five arguments as listed below.
+\begin{itemize}
+    \item[1.] {\bf formula}: A `formula' object where the response variable appears on the left of the \~{} operator
+                and the independent variables are specified on the right.
+                The response must be a `Surv' object, as returned by the ``\texttt{Surv}'' function in the \textbf{survival} package.
+                For subject $i$, at visit $j$, we include time increment variables $\text{diff}_{t_j}=t_{i,j} -t_{i,j-1}$ and an outcome indicator $\eta_{i,j} = I(\text{CVD})$. 
+                On the right of the \~{} operator,
+                the $|$ operator is used to separate independent variables for linear regression functions of $y_{j-1}$ and $\mu_j$ in the LTR model.
+                With $Z_{i,1,j}$=1 for each subject $i$ and visit $j$, the intercept is included in the model by default.
+    \item[2.] {\bf data}: Specifies input data set, which must include at least the time increments variable $\text{diff}_{t_j}$ and 
+    			outcome indicator $\eta_{i,j}$. The censoring variable should be coded as 1 for observed failure and 0 for right censoring.
+                The dataset can also contain other independent variables relevant to the LTR model.
+    \item[3.] {\bf init\_value}: Initial values for the parameters to be optimized over. The sequence of initial values follows the 
+    			order of the independent variables specified on the right side of the \~{} operator in the formula (as described in item 1).
+    			The length of the initial values should match the number of regression coefficients.
+    			By default, the initial values are set to a zero vector.
+    \item[4.] {\bf option}: Specifies the optimization function to be used. The options available are ``optim'' or ``nlm'', referring 
+    			to the respective functions in the base stats package in R. The default option is ``optim''.
+    \item[5.] {\bf alg}: Specifies the minimization method to be used when option = ``optim''. The available methods are 
+    			``Nelder-Mead'', ``BFGS'', ``CG'', ``L-BFGS-B'', ``SANN'' or ``Brent'' as provided by the ``\texttt{optim}'' function. The default method is ``Nelder-Mead''. For more details on each method, please refer to the R documentation for ``\texttt{optim}''.
+\end{itemize}
+
 1. formula: A ‘formula’ object where the response variable appears on the left of the ˜ operator and the independent variables are specified on the right. 
    The response must be a ‘Surv’ object, as returned by the “Surv” function in the survival package. 
    For subject i, at visit j, we include time increment variables $diff_{t_j} = t_{i,j} − t_{i,j−1}$ and an outcome indicator ηi,j = I(CVD). 
