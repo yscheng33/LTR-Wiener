@@ -34,7 +34,7 @@ library(data.table)
 
 long.data <- "longitudinal_dataset.csv"
 
-col.select <- c("ID","TIME","EVENT","EVENTTIME","AGE")
+col.select <- c("ID","TIME","EVENT","EVENTTIME","AGE","TOTCHOL")
 
 col.scale <- c("AGE","TOTCHOL")
 
