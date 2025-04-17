@@ -1,4 +1,4 @@
-# R Function for Longitudinal First-hitting Time Threshold Regression for Survival Data: with Applications to Wiener Processes
+# R Functions for Longitudinal First-hitting Time Threshold Regression for Survival Data: with Applications to Wiener Processes
 
 This repository contains the R functions used for the paper "Longitudinal First-hitting Time Threshold Regression for Survival Data: with Applications to Wiener Processes" submitted to Stats.
 
