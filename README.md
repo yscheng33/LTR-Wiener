@@ -11,3 +11,4 @@ R version 4.4.2+
 Install required packages using:
 ```R
 install.packages("threg")
+install.packages("data.table")
