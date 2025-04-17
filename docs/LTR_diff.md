@@ -9,7 +9,7 @@ Results of these 4 steps create the input file for the “LTR_Wiener” R functi
    corresponding to time 0 to $t_{i,1}$. Similarly, the jth interval is from visit $j − 1$ to visit $j$ corresponding to time from $t_{i,j−1}$ to $t_{i,j}$.
 2. Create a column of time increments diff_{tj} recording the length of time span for each interval.
    For subject $i$, the time increment in the $j$-th interval is $diff_{t_j} = t_{i,j} − t_{i,j−1}$.
-3. Create a column of outcome indicators for an event $\eta_{i,j}$ at the closing of the $j$th interval.
+3. Create a column of outcome indicators for an event $\eta_{i,j}$ at the closing of the $j$-th interval.
    For subject $i$, label the outcome indicator for the $j$-th interval as $\eta_{i,j} = 1$ if subject $i$ encountered an event at time $t_{i,j}$, and $\eta_{i,j} = 0$ otherwise.
 4. Label the $k$th covariates measured at time $t_{i,j−1}$ and $t_{i,j}$ for the jth interval.
    Covariates measured at time $t_{i,j−1}$ will be labeled as “CovariateName_L”.
