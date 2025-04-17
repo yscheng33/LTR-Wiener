@@ -5,16 +5,16 @@ included in the conditional likelihood (1).
 Results of these 4 steps create the input file for the “LTR_Wiener” R function.
 
 1. Decompose the longitudinal data set into a sequence of inter-visit data elements.
-   For each subject i, with baseline visit labeled as visit 0, we denote the first interval as from visit 0 to visit 1,
-   corresponding to time 0 to ti,1. Similarly, the jth interval is from visit j − 1 to visit j corresponding to time from t_{i,j−1} to t_{i,j}.
+   For each subject $i$, with baseline visit labeled as visit 0, we denote the first interval as from visit 0 to visit 1,
+   corresponding to time 0 to $t_{i,1}$. Similarly, the jth interval is from visit $j − 1$ to visit $j$ corresponding to time from $t_{i,j−1}$ to $t_{i,j}$.
 2. Create a column of time increments diff_{tj} recording the length of time span for each interval.
-   For subject i, the time increment in the jth interval is diff_{tj} = t_{i,j} − t_{i,j−1}.
-3. Create a column of outcome indicators for an event η_{i,j} at the closing of the jth interval.
-   For subject i, label the outcome indicator for the jth interval as η_{i,j} = 1 if subject i encountered an event at time t_{i,j}, and η_{i,j} = 0 otherwise.
-4. Label the kth covariates measured at time t_{i,j−1} and t_{i,j} for the jth interval.
-   Covariates measured at time t_{i,j−1} will be labeled as “CovariateName_L”.
-   Similarly, covariate measured at time t_{i,j}, will be labeled as “CovariateName_R”.
-   We use covariates at both the left and right end of the interval j in likelihood computations.
+   For subject $i$, the time increment in the $j$-th interval is $diff_{t_j} = t_{i,j} − t_{i,j−1}$.
+3. Create a column of outcome indicators for an event $\eta_{i,j}$ at the closing of the $j$th interval.
+   For subject $i$, label the outcome indicator for the $j$-th interval as $\eta_{i,j} = 1$ if subject $i$ encountered an event at time $t_{i,j}$, and $\eta_{i,j} = 0$ otherwise.
+4. Label the $k$th covariates measured at time $t_{i,j−1}$ and $t_{i,j}$ for the jth interval.
+   Covariates measured at time $t_{i,j−1}$ will be labeled as “CovariateName_L”.
+   Similarly, covariate measured at time $t_{i,j}$, will be labeled as “CovariateName_R”.
+   We use covariates at both the left and right end of the interval $j$ in likelihood computations.
    For example, if covariate AGE is included in the LTR model, two columns labeled as “AGE_L” and “AGE_R” are needed in computing the regressions.
    
 We provide the “LTR_diff” function to help users create the input file required by the “LTR_Wiener” function. 
