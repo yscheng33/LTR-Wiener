@@ -6,14 +6,14 @@ Results of these 4 steps create the input file for the “LTR_Wiener” R functi
 
 1. Decompose the longitudinal data set into a sequence of inter-visit data elements.
    For each subject i, with baseline visit labeled as visit 0, we denote the first interval as from visit 0 to visit 1,
-   corresponding to time 0 to ti,1. Similarly, the jth interval is from visit j − 1 to visit j corresponding to time from ti,j−1 to ti,j.
+   corresponding to time 0 to ti,1. Similarly, the jth interval is from visit j − 1 to visit j corresponding to time from t_{i,j−1} to t_{i,j}.
 2. Create a column of time increments diff_{tj} recording the length of time span for each interval.
    For subject i, the time increment in the jth interval is diff_{tj} = t_{i,j} − t_{i,j−1}.
 3. Create a column of outcome indicators for an event η_{i,j} at the closing of the jth interval.
    For subject i, label the outcome indicator for the jth interval as η_{i,j} = 1 if subject i encountered an event at time t_{i,j}, and η_{i,j} = 0 otherwise.
-4. Label the kth covariates measured at time ti,j−1 and ti,j for the jth interval.
-   Covariates measured at time ti,j−1 will be labeled as “CovariateName_L”.
-   Similarly, covariate measured at time ti,j, will be labeled as “CovariateName_R”.
+4. Label the kth covariates measured at time t_{i,j−1} and t_{i,j} for the jth interval.
+   Covariates measured at time t_{i,j−1} will be labeled as “CovariateName_L”.
+   Similarly, covariate measured at time t_{i,j}, will be labeled as “CovariateName_R”.
    We use covariates at both the left and right end of the interval j in likelihood computations.
    For example, if covariate AGE is included in the LTR model, two columns labeled as “AGE_L” and “AGE_R” are needed in computing the regressions.
    
@@ -30,10 +30,15 @@ The “LTR_diff” function includes three arguments as listed below.
 
 Below are the sample code for “LTR_diff” function:
 
-R> library(data.table)
-R> long.data <- "longitudinal_dataset.csv"
-R> col.select <- c("ID","TIME","EVENT","EVENTTIME","AGE")
-R> col.scale <- c("AGE","TOTCHOL")
-R> LTR.data <- LTR_diff(file = long.data, col_name = col.select, col_std = col.scale)
-R> write.table(LTR.data,"LTR-data.csv",sep=",",row.names=F)
+library(data.table)
+
+long.data <- "longitudinal_dataset.csv"
+
+col.select <- c("ID","TIME","EVENT","EVENTTIME","AGE")
+
+col.scale <- c("AGE","TOTCHOL")
+
+LTR.data <- LTR_diff(file = long.data, col_name = col.select, col_std = col.scale)
+
+write.table(LTR.data,"LTR-data.csv",sep=",",row.names=F)
 
